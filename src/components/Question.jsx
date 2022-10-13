@@ -9,7 +9,6 @@ const Question = () => {
       Question 1:
       <input type="text" name="name" placeholder="Question"></input>
     </label>
-    <input type="submit" value="Submit" />
   </form>
     </>
   )
