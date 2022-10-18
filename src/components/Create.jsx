@@ -10,7 +10,7 @@ const Create = () => {
           Quiz Name
           <input type="text" name="name" placeholder="Your Quiz Name"></input>
         </label>
-        <Question/>
+        {/* <Question/> */}
         <input type="submit" value="Submit" />
       </form>
     </div>
