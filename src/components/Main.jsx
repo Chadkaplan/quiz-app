@@ -7,7 +7,7 @@ const Main = () => {
     <div>
       <Link to="/Create">
       <button>Create a Quiz</button>
-      <Question></Question>
+      <Question/>
       </Link>
     </div>
   )
