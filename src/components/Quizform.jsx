@@ -29,6 +29,13 @@ const QuizForm = () => {
     });
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+console.log(questions)
+  };
+
+
+  
   return (
     <form>
       {questions.map((q, questionIndex) => (
@@ -56,6 +63,7 @@ const QuizForm = () => {
       <button type="button" onClick={handleAddQuestion}>
         Add Question
       </button>
+      <button type="submit" onClick={handleSubmit}>Submit</button>
     </form>
   );
 };

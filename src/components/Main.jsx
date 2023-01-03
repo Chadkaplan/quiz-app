@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import QuizForm from './Quizform'
 
 const Main = () => {
   return (
@@ -7,6 +8,7 @@ const Main = () => {
       <Link to="/Create">
       <button>Create a Quiz</button>
       </Link>
+      <QuizForm />
     </div>
   )
 }
