@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 const QuizForm = () => {
   const [questions, setQuestions] = useState([{ question: '', answers: ['', ''] }]);
 
-  const handleQuestionChange = (e, index) => {
-    const { value } = e.target;
+  const handleQuestionChange = (event, index) => {
+    const { value } = event.target;
     setQuestions(prevQuestions => {
       const newQuestions = [...prevQuestions];
       newQuestions[index].question = value;
@@ -12,8 +12,8 @@ const QuizForm = () => {
     });
   };
 
-  const handleAnswerChange = (e, questionIndex, answerIndex) => {
-    const { value } = e.target;
+  const handleAnswerChange = (event, questionIndex, answerIndex) => {
+    const { value } = event.target;
     setQuestions(prevQuestions => {
       const newQuestions = [...prevQuestions];
       newQuestions[questionIndex].answers[answerIndex] = value;
@@ -44,7 +44,7 @@ console.log(questions)
           <input
             id={`question-${questionIndex}`}
             value={q.question}
-            onChange={e => handleQuestionChange(e, questionIndex)}
+            onChange={event => handleQuestionChange(event, questionIndex)}
           />
           {q.answers.map((a, answerIndex) => (
             <div key={answerIndex}>
@@ -54,7 +54,7 @@ console.log(questions)
               <input
                 id={`question-${questionIndex}-answer-${answerIndex}`}
                 value={a}
-                onChange={e => handleAnswerChange(e, questionIndex, answerIndex)}
+                onChange={event => handleAnswerChange(event, questionIndex, answerIndex)}
               />
             </div>
           ))}
