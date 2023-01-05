@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./components/Main";
 import Create from "./components/Create";
 import Play from "./components/Play";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/Navbar/Navbar"
 
 const App = () => (
   <BrowserRouter>

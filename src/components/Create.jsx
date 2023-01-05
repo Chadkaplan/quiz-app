@@ -1,8 +1,7 @@
 import React from "react";
-import { useState } from "react";
+import Quizform from "./Quizform";
 
 const Create = () => {
-  const [questions, setQuestions] = useState([])
   return (
     <div>
       <h1>Create a Quiz in Seconds</h1>
@@ -11,9 +10,7 @@ const Create = () => {
           Quiz Name
           <input type="text" name="name" placeholder="Your Quiz Name"></input>
         </label>
-        {/* <Question/> */}
-
-        <input type="submit" value="Submit" />
+        <Quizform />
       </form>
     </div>
   );
