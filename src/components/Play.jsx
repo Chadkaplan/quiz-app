@@ -1,7 +1,8 @@
 import React from 'react';
 
-const questions=  [{question: 'question 1', answers: ["answer 1, answer 2"]}, {question: 'question 2', answers: ["answer 3, answer 4"]}]
+const questions=  [{question: 'question 1', answers: ["answer 1", "answer 2"]}, {question: 'question 2', answers: ["answer 3", "answer 4"]}]
 // Need to take in props instead of hard coded questions
+
 const Play = () => {
   const [selectedAnswers, setSelectedAnswers] = React.useState({});
 
@@ -22,7 +23,7 @@ const Play = () => {
             <div key={i}>
               <input
                 type="radio"
-                name={`question-${index}`}
+                name={index}
                 value={answer}
                 checked={selectedAnswers[index] === answer}
                 onChange={e => handleChange(e, index)}
