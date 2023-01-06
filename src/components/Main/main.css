@@ -1,0 +1,39 @@
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .welcome-title {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  
+  .welcome-description {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .welcome-actions {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+  }
+  
+  .welcome-create-button,
+  .welcome-play-button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .welcome-create-button:hover,
+  .welcome-play-button:hover {
+    background-color: #666;
+  }
+  
