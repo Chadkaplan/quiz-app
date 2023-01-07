@@ -1,60 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const QuizForm = () => {
-  const [questions, setQuestions] = useState([{ question: '', answers: ['', ''] }]);
+  const [questions, setQuestions] = useState([
+    { question: "", answers: ["", ""] },
+  ]);
 
-  const handleQuestionChange = (event, index) => {
-    const { value } = event.target;
-    setQuestions(prevQuestions => {
+  const handleQuestionChange = (e, index) => {
+    const { value } = e.target;
+    setQuestions((prevQuestions) => {
       const newQuestions = [...prevQuestions];
       newQuestions[index].question = value;
       return newQuestions;
     });
   };
 
-  const handleAnswerChange = (event, questionIndex, answerIndex) => {
-    const { value } = event.target;
-    setQuestions(prevQuestions => {
+  const handleAnswerChange = (e, qIndex, aIndex) => {
+    const { value } = e.target;
+    setQuestions((prevQuestions) => {
       const newQuestions = [...prevQuestions];
-      newQuestions[questionIndex].answers[answerIndex] = value;
+      newQuestions[qIndex].answers[aIndex] = value;
       return newQuestions;
     });
   };
 
   const handleAddQuestion = () => {
-    setQuestions(prevQuestions => {
+    setQuestions((prevQuestions) => {
       const newQuestions = [...prevQuestions];
-      newQuestions.push({ question: '', answers: ['', ''] });
+      newQuestions.push({ question: "", answers: ["", ""] });
       return newQuestions;
     });
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-console.log(questions)
-  };
-
-
-  
   return (
     <form>
-      {questions.map((q, questionIndex) => (
-        <div key={questionIndex}>
-          <label htmlFor={`question-${questionIndex}`}>Question {questionIndex + 1}</label>
+      {questions.map((q, qIndex) => (
+        <div key={qIndex}>
+          <label htmlFor={`question-${qIndex}`}>Question {qIndex + 1}</label>
           <input
-            id={`question-${questionIndex}`}
+            id={`question-${qIndex}`}
             value={q.question}
-            onChange={event => handleQuestionChange(event, questionIndex)}
+            onChange={(e) => handleQuestionChange(e, qIndex)}
           />
-          {q.answers.map((a, answerIndex) => (
-            <div key={answerIndex}>
-              <label htmlFor={`question-${questionIndex}-answer-${answerIndex}`}>
-                Answer {answerIndex + 1}
+          {/* Attempt to label the multiple choice answers A B C D currently does not work. Might need to try something besides ASCII like an array with the alphabet */}
+          {q.answers.map((a, aIndex) => (
+            <div key={aIndex}>
+              <label htmlFor={`question-${qIndex}-answer-${aIndex}`}>
+                {String.fromCharCode(65 + aIndex)}
               </label>
               <input
-                id={`question-${questionIndex}-answer-${answerIndex}`}
+                id={`question-${qIndex}-answer-${aIndex}`}
                 value={a}
-                onChange={event => handleAnswerChange(event, questionIndex, answerIndex)}
+                onChange={(e) => handleAnswerChange(e, qIndex, aIndex)}
               />
             </div>
           ))}
@@ -63,7 +59,6 @@ console.log(questions)
       <button type="button" onClick={handleAddQuestion}>
         Add Question
       </button>
-      <button type="submit" onClick={handleSubmit}>Submit</button>
     </form>
   );
 };
